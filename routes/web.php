@@ -6,11 +6,18 @@ use Illuminate\Support\Facades\Route;
 
 
 // subdomain
-Route::domain('subdomain.localhost')->group(function () {
+Route::domain('admin.localhost')->group(function () {
+   
+    route::get('/create_an_account',function(){
+        return view ('admin.register');
+    })->name('create');
     
     route::controller(UserController::class)->group(function(){
         route::get('/','login');
+        route::post('/register','register')->name('register');
+        route::post('/checkuser','checkuser')->name('checkuser');
     });
+
 });
 
 
