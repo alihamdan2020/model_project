@@ -1,8 +1,42 @@
+.btn{
+    padding:5px;
+    color:white;
+    border-radius: 5px;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 16px;
+    text-transform: capitalize;
+}
+.btn-danger{
+    background-color:red;
+}
+.btn-update{
+    
+    background-color:gray;
+}
 *{
     box-sizing: border-box;
     margin:0;
     padding:0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+header{
+    padding-block:50px;
+    background-color: burlywood;
+    text-align: center;
+    display:flex;
+    align-items:center;
+    padding-inline:20px
+}
+header a{
+    margin-inline: 20px;
+    text-decoration: none;
+    font-size: 20px;
+    color:white;
+    text-transform: capitalize;
+}
+nav a:hover{
+    text-decoration: underline;
 }
 body{
     min-height:100vh;
@@ -32,33 +66,50 @@ h2 i{
     padding:20px;
     min-width: 390px
 }
-.form .group-controls{
-    margin-block:10px
+.group-controls{
+    margin-block:15px
 }
-.form .group-controls label{
+.moremargin{
+    margin-top: 20px;
+}
+.group-controls label{
 display: block;
 text-transform: capitalize;
 color:orangered;
 margin-bottom: 10px;
 }
-.form .group-controls input[type="text"],
-.form .group-controls input[type="password"]{
+.group-controls input[type="text"],
+.group-controls input[type="password"]{
     border:1px solid orangered;
     outline: 0;
     padding:5px;
     border-radius:5px;
 }
 
-.form .group-controls input:focus {
-    border:0px;
+.group-controls input:focus {
+    border:1px solid transparent;
    box-shadow: 0px 0px 5px rgb(234, 163, 10);
 }
 
-.form .group-controls button{
+.group-controls button{
     border:0px;
     outline:0;
     background-color: orangered;
     color:white;
     padding: 10px;
     border-radius: 5px;
+    cursor:pointer
+}
+
+.admin-container{
+    display:flex;
+    gap:100px;
+    align-items: flex-start;
+}
+.addcontent{
+    border:5px solid orangered;
+    display:grid;
+    place-items: center;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
 }

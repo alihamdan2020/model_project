@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class UserController extends Controller
 {
@@ -37,9 +39,25 @@ class UserController extends Controller
       ]);
       $data=$req->only('email','password');
       if(auth()->attempt($data)){
-         return view('admin.dashboard');
+         return redirect()->route('dashboard');
      }
      else
-     return redirect()->back()->with('msg','error usernamee or password');
+     return redirect()->back()->with('msg','error username or password');
    }
+   public function dashboard()
+{
+    $user = auth()->user(); // Get the authenticated user
+    return view('admin.dashboard', compact('user'));
+}
+
+function logout(){
+   Auth::logout(); // Logs out the user
+
+    // Invalidate and regenerate the session
+    request()->session()->invalidate();
+    request()->session()->regenerateToken();
+
+    return redirect()->route('main'); // Redirect to the login page
+    
+}
 }

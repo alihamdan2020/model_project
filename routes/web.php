@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -13,9 +14,27 @@ Route::domain('admin.localhost')->group(function () {
     })->name('create');
     
     route::controller(UserController::class)->group(function(){
-        route::get('/','login');
+        route::get('/','login')->name('main');
+        route::get('/logout','logout')->name('logout');
+        Route::get('/dashboard','dashboard')->name('dashboard');
+
         route::post('/register','register')->name('register');
         route::post('/checkuser','checkuser')->name('checkuser');
+    });
+
+    route::controller(CategoryController::class)->group(function(){
+        route::get('/categories','index')->name('showCategories');
+        route::post('/category/addCategory','addCategory')->name('add-category');
+        route::get('category/destroy/{id}','deleteCategory')->name('deleteCategory');
+        
+        route::put('/category/update/{id}','updateCategory')->name('updateCategory');
+        
+
+
+    });
+
+    route::controller(ProductController::class)->group(function(){
+        route::get('/products','indexAdmin')->name('showProducts');
     });
 
 });
