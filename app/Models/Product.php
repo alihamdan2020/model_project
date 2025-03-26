@@ -8,6 +8,17 @@ class Product extends Model
 {
     protected $primaryKey="product_id";
     use HasFactory;
+    protected $fillable =[
+        'product_name',
+        'product_photo',
+        'product_description',
+        'product_price',
+        'category_id',
+        'color1',
+        'color2',
+        'color3',
+
+    ];
 
     public function category()
 {

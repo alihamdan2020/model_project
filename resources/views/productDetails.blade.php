@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="product_details">
-    <div class="photo" style="background-image:url('{{$product->product_photo}}')"></div>
+    <div class="photo" style="background-image:url('{{asset('images').'/'.$product->product_photo}}')"></div>
     <div class="info">
         <p><label>Product name</label>{{$product->product_name}}</p>
         <p><label>price</label>{{$product->product_price}}</p>

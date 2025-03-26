@@ -1,3 +1,6 @@
+:root{
+--mainColor:orangered;
+}
 .btn{
     padding:5px;
     color:white;
@@ -9,6 +12,8 @@
 }
 .btn-danger{
     background-color:red;
+    font-size: 12px;
+    margin-inline: 15px;
 }
 .btn-update{
     
@@ -38,6 +43,7 @@ header a{
 nav a:hover{
     text-decoration: underline;
 }
+/*end hedaer*/
 body{
     min-height:100vh;
     position: relative;
@@ -49,41 +55,55 @@ h1{
     font-size: 100px;
     text-align: center;
     color:transparent;
-    -webkit-text-stroke: orangered 5px;
+    -webkit-text-stroke: var(--mainColor) 5px;
     text-transform: capitalize;
     background-color: burlywood;
     padding-block: 20px;
 }
 h2 i{
-    color:orangered;
+    color:var(--mainColor);
 }
-.form{
-    position: absolute;
-    top:55%;
-    left:50%;
-    translate: -50% -50%; 
+.admin-container{
+    display:flex;
+    gap:100px;
+    align-items: flex-start;
+}
+
+
+.addcontent{
+    border:5px solid var(--mainColor);
+    display:grid;
+    place-items: center;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+}
+.addcontent form{
     border:0px solid green;
-    padding:20px;
-    min-width: 390px
+    width:300px;
 }
 .group-controls{
-    margin-block:15px
-}
-.moremargin{
-    margin-top: 20px;
+    margin-block:15px;
+    bordeR:0px solid green;
+    width:100%;
 }
 .group-controls label{
-display: block;
-text-transform: capitalize;
-color:orangered;
-margin-bottom: 10px;
+    display: block;
+    text-transform: capitalize;
+    color:var(--mainColor);
+    margin-bottom: 10px;
 }
 .group-controls input[type="text"],
-.group-controls input[type="password"]{
-    border:1px solid orangered;
+.group-controls input[type="password"],
+.group-controls select,
+.group-controls textarea
+{
+    border:1px solid var(--mainColor);
     outline: 0;
     padding:5px;
     border-radius:5px;
+    width:100%;
+    color:var(--mainColor)
+
 }
 
 .group-controls input:focus {
@@ -94,22 +114,30 @@ margin-bottom: 10px;
 .group-controls button{
     border:0px;
     outline:0;
-    background-color: orangered;
+    background-color:var(--mainColor);
     color:white;
     padding: 10px;
     border-radius: 5px;
-    cursor:pointer
+    cursor:pointer;
+    margin-inline:10px ;
+}
+select{
+    appearance: none;
 }
 
-.admin-container{
-    display:flex;
-    gap:100px;
-    align-items: flex-start;
+.group-controls-select{
+    position: relative;
+    border:0px solid green;
 }
-.addcontent{
-    border:5px solid orangered;
-    display:grid;
-    place-items: center;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+.group-controls-select:after{
+    position: absolute;
+    content:"▼";
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color : var(--mainColor)   
+}
+.moremargin{
+    margin-top: 20px;
 }

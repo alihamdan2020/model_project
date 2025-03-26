@@ -33,15 +33,24 @@ header img{
     width:80vw;
 }
 .card{
-    border:1px solid green;
+    border:0px solid green;
     border-radius:10px;
-    flex-basis: 300px;
+    flex-basis: 150px;
     padding:5px;
+	
 }
 .card img{
 width:100%;
+height:110px;
+object-fit:contain;
 }
-
+.card p{
+	border:0px solid green;
+	overflow:hidden;
+	white-space:nowrap;
+	max-width:130px;
+	text-overflow: ellipsis;
+}
 /*product_details*/
 .product_details{
     margin:20px auto;

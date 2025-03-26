@@ -38,7 +38,7 @@ class UserController extends Controller
          'password'=>'required|min:5'
       ]);
       $data=$req->only('email','password');
-      if(auth()->attempt($data)){
+      if(auth::attempt($data)){
          return redirect()->route('dashboard');
      }
      else
@@ -46,7 +46,7 @@ class UserController extends Controller
    }
    public function dashboard()
 {
-    $user = auth()->user(); // Get the authenticated user
+    $user = auth::user(); // Get the authenticated user
     return view('admin.dashboard', compact('user'));
 }
 

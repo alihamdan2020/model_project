@@ -35,6 +35,7 @@ Route::domain('admin.localhost')->group(function () {
 
     route::controller(ProductController::class)->group(function(){
         route::get('/products','indexAdmin')->name('showProducts');
+        route::post('/products/addProduct','add_product')->name('add-product');
     });
 
 });
@@ -48,4 +49,5 @@ route::controller(ProductController::class)->group(function () {
     route::get('/', 'index')->name('home');
     //i set productId as parameter to indicate that it is not obligatry name the parameter here as the paramerter in show function
     route::get('/show/{productID}', 'show');
+    
 });
