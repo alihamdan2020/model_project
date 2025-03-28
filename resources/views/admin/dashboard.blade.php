@@ -3,6 +3,9 @@
 
 @section('content')
 @include('admin.header')
+
+
+
 <div style="width:80vw;margin:20px auto">
     <div style="display:flex;flex-direction:column;gap:15px;">
         <p>Your name: {{ $user->name}}</p>

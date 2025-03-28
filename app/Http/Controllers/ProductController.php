@@ -11,9 +11,18 @@ class ProductController extends Controller
 {
    function index(){
     // $products=Product::all();
-    $products=Product::join
-    ('categories','products.category_id','categories.category_id')->select('products.*','category_name')->limit(5)->get();
-    return view('welcome',compact('products'));
+    $categories= Category::whereIn('category_id', function ($query) {
+      $query->select('category_id')
+            ->distinct()
+            ->from('products');
+  })->get();
+  
+  $products = Product::join('categories', 'products.category_id', '=', 'categories.category_id')
+  ->select('products.*', 'categories.category_name')
+  ->get()
+  ->groupBy('category_name');  // Group products by category
+//   dd($products);
+  return view('welcome',compact('products','categories'));
    }
 
    function show($id){

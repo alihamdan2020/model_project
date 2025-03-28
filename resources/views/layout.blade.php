@@ -13,10 +13,14 @@
     <header>
         <img src="{{asset('images').'/logo.jpg'}}" alt="" srcset="">
         <nav>
-            <a href="{{route('home')}}">home</a>
+            <a href="{{route('home',[],true)}}">home</a>
             <a href="{{route('about')}}">about us</a>
             <a href="#">gallery</a>
+            @auth()
+            <a href="#">log out</a>
+            @else
             <a href="#">log in</a>
+            @endauth
         </nav>
     </header>
     <main>

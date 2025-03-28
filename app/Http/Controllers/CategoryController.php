@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Product;
 
 class CategoryController extends Controller
 {
@@ -51,5 +52,19 @@ class CategoryController extends Controller
         //     'category_name'=>$req->input('category_name')
         // ]); other method
         return redirect()->back()->with('confirmation','category name has updaed succefully')->with('color','green');
+    }
+
+
+    public function find ($id){
+        $categories= Category::whereIn('category_id', function ($query) {
+            $query->select('category_id')
+                  ->distinct()
+                  ->from('products');
+        })->get();
+
+        $products=Product::join('categories','products.category_id','categories.category_id')
+        ->where('products.category_id',$id)->get()->groupBy('category_name');
+        
+        return view('welcome',compact('products','categories'));
     }
 }
